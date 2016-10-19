@@ -12,11 +12,13 @@ public abstract class AsyncTask {
 
 	public abstract void onPreExecute();
 
-	public abstract void doInBackground() throws Exception;
+	public abstract void doInBackground() throws Throwable;
 
 	public abstract void onPostExecute();
 
 	public abstract void progressCallback(Object... params);
+	
+	public abstract void onFail(Throwable t);
 
 	public void publishProgress(final Object... params) {
 
@@ -44,7 +46,7 @@ public abstract class AsyncTask {
 						onPostExecute();
 					}
 				});
-			} catch(final Exception e) {
+			} catch (final Throwable e) {
 				Platform.runLater(new Runnable() {
 
 					@Override
