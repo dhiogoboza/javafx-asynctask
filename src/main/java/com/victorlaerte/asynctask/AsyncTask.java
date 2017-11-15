@@ -1,6 +1,8 @@
 package com.victorlaerte.asynctask;
 
 import javafx.application.Platform;
+import java.lang.Runnable;
+import java.lang.Throwable;
 
 /**
  *
